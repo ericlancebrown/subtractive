@@ -1,0 +1,6 @@
+[
+{ "include": ["<gtest/.*>", "private", "<gtest/gtest.h>", "public"] },
+{ "include": ["@<boost/asio/.*>", "private", "<boost/asio.hpp>", "public"] },
+{ "include": ["<ext/type_traits>", "private", "<type_traits>", "public"] },
+{ "include": ["<ext/type_traits.h>", "private", "<type_traits>", "public"] }
+]
