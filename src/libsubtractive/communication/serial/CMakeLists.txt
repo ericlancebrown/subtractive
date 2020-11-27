@@ -8,3 +8,7 @@ endif()
 
 add_library(ls-communication-serial OBJECT "${SOURCES}")
 target_link_libraries(ls-communication-serial PRIVATE Boost::headers)
+
+if("${CMAKE_PROJECT_NAME}" STREQUAL "${PROJECT_NAME}")
+    install(TARGETS ls-communication-serial EXPORT subtractive-targets)
+endif()
