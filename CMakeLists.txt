@@ -6,6 +6,11 @@ include(libsubtractive-flags)
 
 project(libsubtractive)
 
+include(CMakePackageConfigHelpers)
+
+set(subtractive_VERSION 1.0.0)
+set(subtractive_SOVERSION 0)
+
 set_compiler_flags(17 TRUE)
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src")
