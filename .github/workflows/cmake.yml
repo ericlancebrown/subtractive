@@ -49,6 +49,11 @@ jobs:
             else
                 echo 'success'
             fi
+    
+    - name: cppcheck . --enable=all
+      shell: bash
+      working-directory: .
+      run: cppcheck . --enable=all
             
     - uses: actions/upload-artifact@v2
       with: 
