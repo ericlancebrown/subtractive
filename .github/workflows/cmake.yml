@@ -52,7 +52,7 @@ jobs:
     
     - name: cppcheck . --enable=all
       shell: bash
-      working-directory: .
+      working-directory: src
       run: cppcheck . --enable=all
             
     - uses: actions/upload-artifact@v2
