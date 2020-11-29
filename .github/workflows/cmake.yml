@@ -49,6 +49,11 @@ jobs:
             else
                 echo 'success'
             fi
+    
+    - name: src check
+      shell: bash
+      working-directory: src
+      run: cppcheck . --enable=all --check-config --suppress=missingIncludeSystem
             
     - uses: actions/upload-artifact@v2
       with: 
