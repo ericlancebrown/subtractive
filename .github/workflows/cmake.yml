@@ -50,10 +50,10 @@ jobs:
                 echo 'success'
             fi
     
-    - name: cppcheck . --enable=all
+    - name: cppcheck . --enable=all --check-config
       shell: bash
       working-directory: src
-      run: cppcheck . --enable=all
+      run: cppcheck . --enable=all --check-config
             
     - uses: actions/upload-artifact@v2
       with: 
