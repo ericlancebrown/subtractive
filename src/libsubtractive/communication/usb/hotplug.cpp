@@ -70,7 +70,7 @@ auto Hotplug::get_usb_address(const libusbp::device& device) noexcept
 
 auto Hotplug::get_port_path(
     const libusbp::device& device,
-    const std::uint8_t interface,
+    std::uint8_t interface,
     const bool composite,
     const std::string address,
     DeviceMap& devices) noexcept -> bool
