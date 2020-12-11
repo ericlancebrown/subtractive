@@ -38,7 +38,7 @@ private:
     static auto get_port_path(
         const libusbp::device& device,
         std::uint8_t interface,
-        const bool composite,
+        bool composite,
         const std::string address,
         DeviceMap& devices) noexcept -> bool;
 
