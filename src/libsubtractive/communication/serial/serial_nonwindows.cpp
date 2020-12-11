@@ -40,7 +40,7 @@ struct Nonwindows final : virtual public SerialConnection::Imp {
     }
     auto disconnect() -> void final
     {
-        work_.reset();
+        work_.restart();
 
         if (asio_context_) {
             asio_context_->stop();
@@ -50,8 +50,8 @@ struct Nonwindows final : virtual public SerialConnection::Imp {
 
         if (asio_thread_.joinable()) { asio_thread_.join(); }
 
-        serial_port_.reset();
-        asio_context_.reset();
+        serial_port_.restart();
+        asio_context_.restart();
     }
     auto transmit(const std::string_view data) -> void final
     {
