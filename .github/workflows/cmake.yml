@@ -53,18 +53,4 @@ jobs:
     - name: src check
       shell: bash
       working-directory: src
-      run: cppcheck . --enable=all --check-config --suppress=missingIncludeSystem
-            
-    - uses: actions/upload-artifact@v2
-      with: 
-        name: upload libsubtractive_ubuntu-2004
-        path: ./build
-  
-    - uses: actions/upload-artifact@v2
-      with: 
-        name: upload libsubtractive_ubuntu-2004_binaries
-        path: | 
-         /usr/local/lib/libsubtractive.so
-         /usr/local/include/libsubtractive.hpp
-         /usr/local/lib/pkgconfig/libsubtractive.pc
-
+      run: cppcheck . --enable=all --check-config --suppress=missingIncludeSyste
