@@ -39,6 +39,8 @@ target_link_libraries(
     "${LIBUSBP_LIBRARIES}" 
     "${Boost_SYSTEM_LIBRARY}"
     "${Boost_HEADERS_LIBRARY}"
+  PRIVATE
+    zmq
   INTERFACE 
     ls-communication-usb
 )

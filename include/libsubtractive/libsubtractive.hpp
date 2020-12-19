@@ -26,7 +26,7 @@ enum LS_Options {
     LS_NOWEXECUTING = 124,
     LS_DEVICEREMOVED = 125,
     LS_DEVICEADDED = 126,
-    LS_LISTDEVICES_REPLY = 127,
+    LS_LISTDEVICES_REPLY = 127
 };
 
 struct LS_options {
@@ -38,5 +38,4 @@ const char* libsubtractive_endpoint();
 void* libsubtractive_init_context(const LS_options* options);
 void libsubtractive_close_context();
 }
-
 #endif  // LIBSUBTRACTIVE_LIBSUBTRACTIVE_HPP

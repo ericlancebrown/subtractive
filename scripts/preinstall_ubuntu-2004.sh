@@ -10,7 +10,7 @@
 # the requirements for libsubtractive.
 ####################################################
 sudo apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev \
-cmake pkg-config build-essential libudev-dev cppcheck
+cmake pkg-config build-essential libudev-dev
 
 # libusbp - <libusbp-1/lisubp.hpp>
 git clone https://github.com/pololu/libusbp.git
