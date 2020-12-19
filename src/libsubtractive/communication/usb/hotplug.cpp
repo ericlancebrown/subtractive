@@ -70,7 +70,7 @@ auto Hotplug::get_usb_address(const libusbp::device& device) noexcept
 
 auto Hotplug::get_port_path(
     const libusbp::device& device,
-    const std::uint8_t interface,
+    const std::uint8_t interface_number,
     const bool composite,
     const std::string address,
     DeviceMap& devices) noexcept -> bool
@@ -78,7 +78,7 @@ auto Hotplug::get_port_path(
     try {
         devices.emplace(
             address,
-            libusbp::serial_port{device, interface, composite}.get_name());
+            libusbp::serial_port{device, interface_number, composite}.get_name());
     } catch (...) {
         return false;
     }
@@ -90,7 +90,7 @@ auto Hotplug::thread() noexcept -> void
 {
     while (running_) {
         enumerate_usb();
-        std::this_thread::sleep_for(std::chrono::microseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }
 

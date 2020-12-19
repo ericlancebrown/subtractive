@@ -18,7 +18,7 @@ macro(set_compiler_flags cxxStandard pedanticMode)
   elseif(${CMAKE_CXX_COMPILER_ID} MATCHES Clang)
     set(
       ${PROJECT_NAME}_WARNING_FLAGS
-      "${${PROJECT_NAME}_WARNING_FLAGS} -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-covered-switch-default -Wno-exit-time-destructors -Wno-global-constructors -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-padded -Wno-redundant-parens -Wno-undefined-func-template -Wno-unknown-warning-option -Wno-weak-template-vtables -Wno-weak-vtables"
+      "${${PROJECT_NAME}_WARNING_FLAGS} -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-covered-switch-default -Wno-exit-time-destructors -Wno-global-constructors -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-padded -Wno-redundant-parens -Wno-undefined-func-template -Wno-unknown-warning-option -Wno-weak-template-vtables -Wno-weak-vtables -Wno-reserved-id-macro -Wno-poison-system-directories -Wno-documentation-unknown-command -Wno-zero-as-null-pointer-constant -Wno-shadow-field -Wno-undef -Wno-newline-eof -Wno-float-equal"
     )
   elseif(MSVC)
     set(
@@ -49,6 +49,6 @@ macro(set_compiler_flags cxxStandard pedanticMode)
 
   set(
     CMAKE_CXX_FLAGS
-    "${CMAKE_CXX_FLAGS} ${${PROJECT_NAME}_PEDANTIC_FLAG} ${${PROJECT_NAME}_WARNING_FLAGS} -pthread -fPIC -std=c++17"
+    "${CMAKE_CXX_FLAGS} ${${PROJECT_NAME}_PEDANTIC_FLAG} ${${PROJECT_NAME}_WARNING_FLAGS} -pthread -fPIC"
   )
 endmacro()
