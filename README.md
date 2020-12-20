@@ -1,4 +1,4 @@
-# libsubtractive
+# subtractive
 
 [![Commit Tracker](https://img.shields.io/github/last-commit/ericlancebrown/subtractive?label=last%20commit&style=flat-square)](https://github.com/ericlancebrown/subtractive/commits/master "Go to commits")
 [![Issue Tracker](https://img.shields.io/github/issues/ericlancebrown/subtractive?label=issues&style=flat-square)](https://github.com/ericlancebrown/subtractive/issues "Go to issues")
