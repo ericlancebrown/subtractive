@@ -11,7 +11,7 @@ Repository containing libsubtractive for use as a shared library.
 Don't want to install the prerequisites and build it yourself? These will build and install all of the prerequisites as well as libsubtractive. The installations scripts handle everything. Just mark the script as an executable and run it!
 |OS|Script|Build|
 |---|---|---|
-|Ubuntu 20.04|[Ubuntu 20.04](https://gist.github.com/ericlancebrown/f6c1d8f9e27cce0187ae8627b0f62df6#file-ls_ubuntu-2004-sh)|[![Build Tracker](https://img.shields.io/github/workflow/status/ericlancebrown/subtractive/Build%20on%20Ubuntu%2020.04?logo=ubuntu&style=flat-square)](https:/github.com/ericlancebrown/subtractive/actions "Go to actions")|
+|Ubuntu 20.04|[ls_ubuntu-2004.sh](https://gist.github.com/ericlancebrown/f6c1d8f9e27cce0187ae8627b0f62df6#file-ls_ubuntu-2004-sh)|[![Build Tracker](https://img.shields.io/github/workflow/status/ericlancebrown/subtractive/Build%20on%20Ubuntu%2020.04?logo=ubuntu&style=flat-square)](https:/github.com/ericlancebrown/subtractive/actions "Go to actions")|
 
 
 
