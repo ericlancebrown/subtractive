@@ -30,6 +30,24 @@ Don't want to install the prerequisites and build it yourself? These will build 
 
 Remember you must have all prerequisites installed correctly or libsubtractive will not build.
 
+
+You can install them using the commands below:
+```bash
+sudo apt install libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev \
+cmake pkg-config build-essential libudev-dev
+
+# libusbp
+git clone https://github.com/pololu/libusbp.git
+cd libusbp
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig
+cd
+```
+
+Then you may use these to install libsubtractive:
 ```bash
 git clone https://github.com/Lupin-CNC/libsubtractive.git
 cd libsubtractive
