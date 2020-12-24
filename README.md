@@ -36,7 +36,11 @@ You can install them using the commands below:
 # apt
 sudo apt install libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev \
 cmake pkg-config build-essential libudev-dev
+```
 
+
+Libusbp must be built alone.
+```bash
 # libusbp
 git clone https://github.com/pololu/libusbp.git
 cd libusbp
