@@ -33,6 +33,7 @@ Remember you must have all prerequisites installed correctly or libsubtractive w
 
 You can install them using the commands below:
 ```bash
+# apt
 sudo apt install libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev \
 cmake pkg-config build-essential libudev-dev
 
@@ -49,6 +50,7 @@ cd
 
 Then you may use these to install libsubtractive:
 ```bash
+# libsubtractive
 git clone https://github.com/Lupin-CNC/libsubtractive.git
 cd libsubtractive
 mkdir build && cd build
