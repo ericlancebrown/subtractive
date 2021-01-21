@@ -26,7 +26,15 @@ enum LS_Options {
     LS_NOWEXECUTING = 124,
     LS_DEVICEREMOVED = 125,
     LS_DEVICEADDED = 126,
-    LS_LISTDEVICES_REPLY = 127
+    LS_LISTDEVICES_REPLY = 127,
+    GrblPushReceived = 248,
+    DeviceIsSupported = 249,
+    EnableFlowControl = 250,
+    DataReceived = 251,
+    InitGrbl = 252,
+    USBDeviceRemoved = 253,
+    USBDeviceAdded = 254,
+    Shutdown = 255
 };
 
 struct LS_options {

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 cmake_policy(SET CMP0091 NEW)
 
+option(WITH_GTEST "Build with GTest" OFF)
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(libsubtractive-flags)
 
@@ -20,10 +22,12 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 install(FILES include/libsubtractive/libsubtractive.hpp 
 		DESTINATION "include/libsubtractive")
+		
+add_subdirectory(src)
 
+if(WITH_GTEST)
 find_package(GTest REQUIRED)
 enable_testing()
 include(CTest)
-
-add_subdirectory(src)
 add_subdirectory(tests)
+endif()
