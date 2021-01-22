@@ -25,18 +25,4 @@ jobs:
 
     - name: Build & Install libsubtractive
       run: cmake -E make_directory ./build && cd build && cmake .. && cmake --build . && sudo cmake --install .
-
-    #- name: cmake
-    #  shell: bash
-    #  working-directory: ./build
-    #  run: cmake ..
       
-    #- name: cmake --build .
-    #  shell: bash
-    #  working-directory: ./build
-    #  run: cmake --build .
-      
-    #- name: cmake --install .
-    #  shell: bash
-    #  working-directory: ./build
-    #  run: sudo cmake --install .
