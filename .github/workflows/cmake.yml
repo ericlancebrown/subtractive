@@ -1,6 +1,11 @@
 name: Build on Ubuntu 20.04
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - master
+      - ci-fix 
 
 env:
   BUILD_TYPE: Release
@@ -10,42 +15,14 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-
     - name: Install Prerequisites
       shell: bash
-      working-directory: ./scripts
-      run: chmod u+x preinstall_ubuntu-2004.sh && ./preinstall_ubuntu-2004.sh 
-
-    - name: Create Build Environment
-      run: cmake -E make_directory ./build
-
-    - name: cmake
-      shell: bash
-      working-directory: ./build
-      run: cmake ..
+      run: sudo apt update && sudo apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev cmake pkg-config build-essential libudev-dev
       
-    - name: make
+    - name: Clone, Build & Install libusbp
       shell: bash
-      working-directory: ./build
-      run: make
-      
-    - name: sudo make install
-      shell: bash
-      working-directory: ./build
-      run: sudo make install
+      run: git clone https://github.com/pololu/libusbp && cd libusbp && mkdir build && cd build && cmake .. && cmake --build . && sudo cmake --install .   
 
-    - name: sudo ldconfig
-      shell: bash
-      working-directory: ./build
-      run: sudo ldconfig
+    - name: Build & Install libsubtractive
+      run: cmake -E make_directory ./build && cd build && cmake .. && cmake --build . && sudo cmake --install .
       
-    - name: test if exists
-      shell: bash
-      working-directory: ./build
-      run: |
-           pkgs='libsubtractive'
-           if ! ldconfig -p | grep $pkgs >/dev/null 2>&1; then
-                exit 1
-            else
-                echo 'success'
-            fi
