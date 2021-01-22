@@ -19,45 +19,24 @@ jobs:
       shell: bash
       run: sudo apt update && sudo apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev cmake pkg-config build-essential libudev-dev
       
-    - name: Install libusbp
+    - name: Clone, Build & Install libusbp
       shell: bash
       run: git clone https://github.com/pololu/libusbp && cd libusbp && mkdir build && cd build && cmake .. && cmake --build . && sudo cmake --install .   
-      
-    #- name: Install Prerequisites
-    #  shell: bash
-    #  working-directory: ./scripts
-    #  run: chmod u+x preinstall_ubuntu-2004.sh && ./preinstall_ubuntu-2004.sh 
 
-    - name: Create Build Environment
-      run: cmake -E make_directory ./build
+    - name: Build & Install libsubtractive
+      run: cmake -E make_directory ./build && cd build && cmake .. && cmake --build . && sudo cmake --install .
 
-    - name: cmake
-      shell: bash
-      working-directory: ./build
-      run: cmake ..
-      
-    - name: cmake --build .
-      shell: bash
-      working-directory: ./build
-      run: cmake --build .
-      
-    - name: cmake --install .
-      shell: bash
-      working-directory: ./build
-      run: sudo cmake --install .
-
-    #- name: sudo ldconfig
+    #- name: cmake
     #  shell: bash
     #  working-directory: ./build
-    #  run: sudo ldconfig
+    #  run: cmake ..
       
-    - name: test if exists
-      shell: bash
-      working-directory: ./build
-      run: |
-           pkgs='libsubtractive'
-           if ! ldconfig -p | grep $pkgs >/dev/null 2>&1; then
-                exit 1
-            else
-                echo 'success'
-            fi
+    #- name: cmake --build .
+    #  shell: bash
+    #  working-directory: ./build
+    #  run: cmake --build .
+      
+    #- name: cmake --install .
+    #  shell: bash
+    #  working-directory: ./build
+    #  run: sudo cmake --install .
