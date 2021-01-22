@@ -1,6 +1,10 @@
 name: Build on Ubuntu 20.04
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - master
 
 env:
   BUILD_TYPE: Release
@@ -10,11 +14,18 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-
     - name: Install Prerequisites
       shell: bash
-      working-directory: ./scripts
-      run: chmod u+x preinstall_ubuntu-2004.sh && ./preinstall_ubuntu-2004.sh 
+      run: apt update && apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev cmake pkg-config build-essential libudev-dev
+      
+    - name: Install libusbp
+      shell: bash
+      run: git clone https://github.com/pololu/libusbp && cd libusbp && mkdir build && cd build && cmake .. && cmake --build . && cmake --install .   
+      
+    #- name: Install Prerequisites
+    #  shell: bash
+    #  working-directory: ./scripts
+    #  run: chmod u+x preinstall_ubuntu-2004.sh && ./preinstall_ubuntu-2004.sh 
 
     - name: Create Build Environment
       run: cmake -E make_directory ./build
@@ -24,20 +35,20 @@ jobs:
       working-directory: ./build
       run: cmake ..
       
-    - name: make
+    - name: cmake --build .
       shell: bash
       working-directory: ./build
-      run: make
+      run: cmake --build .
       
-    - name: sudo make install
+    - name: cmake --install .
       shell: bash
       working-directory: ./build
-      run: sudo make install
+      run: cmake --install .
 
-    - name: sudo ldconfig
-      shell: bash
-      working-directory: ./build
-      run: sudo ldconfig
+    #- name: sudo ldconfig
+    #  shell: bash
+    #  working-directory: ./build
+    #  run: sudo ldconfig
       
     - name: test if exists
       shell: bash
