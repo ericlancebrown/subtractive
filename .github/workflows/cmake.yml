@@ -17,11 +17,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Prerequisites
       shell: bash
-      run: apt update && apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev cmake pkg-config build-essential libudev-dev
+      run: sudo apt update && apt install -y libgtest-dev libzmq3-dev libboost-system-dev libboost-thread-dev cmake pkg-config build-essential libudev-dev
       
     - name: Install libusbp
       shell: bash
-      run: git clone https://github.com/pololu/libusbp && cd libusbp && mkdir build && cd build && cmake .. && cmake --build . && cmake --install .   
+      run: git clone https://github.com/pololu/libusbp && cd libusbp && mkdir build && cd build && cmake .. && cmake --build . && sudo cmake --install .   
       
     #- name: Install Prerequisites
     #  shell: bash
@@ -44,7 +44,7 @@ jobs:
     - name: cmake --install .
       shell: bash
       working-directory: ./build
-      run: cmake --install .
+      run: sudo cmake --install .
 
     #- name: sudo ldconfig
     #  shell: bash
